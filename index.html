@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun, Nazilatul Askia! 🎂✨</title>
+  <meta name="description" content="Ucapan selamat ulang tahun spesial dan penuh cinta untuk adik perempuan tercinta, Nazilatul Askia.">
+  
+  <!-- Google Fonts: Fredoka & Quicksand untuk tampilan super cute & modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Floating Decor (Clouds, Stars, Bubbles) -->
+  <div class="sky-decor" aria-hidden="true">
+    <div class="floating-star s1">✨</div>
+    <div class="floating-star s2">⭐</div>
+    <div class="floating-star s3">🌸</div>
+    <div class="floating-star s4">✨</div>
+    <div class="floating-cloud c1">☁️</div>
+    <div class="floating-cloud c2">☁️</div>
+    <div class="floating-cloud c3">☁️</div>
+  </div>
+
+  <!-- Music Controller Widget (Floating Glassmorphic Pill) -->
+  <div class="music-pill" id="musicPill" title="Putar / Jeda Musik Instrumen">
+    <div class="disc-icon" id="discIcon">🎵</div>
+    <div class="music-info">
+      <span class="music-title">Instrumen: Happy Birthday Box</span>
+      <span class="music-status" id="musicStatus">Klik untuk Putar Musik</span>
+    </div>
+    <button class="music-btn" id="musicToggleBtn" aria-label="Toggle Musik">
+      <span id="musicBtnIcon">▶️</span>
+    </button>
+  </div>
+
+  <!-- SECTION 1: SURPRISE GIFT GATEWAY (Layar Awal Buka Kado) -->
+  <section class="gift-screen" id="giftScreen">
+    <div class="gift-container">
+      <div class="tag-badge">Pesan Kejutan Khusus Untukmu 🎀</div>
+      <h1 class="gift-title">Hai Adik Manis! Ada Kado Spesial Untukmu 💖</h1>
+      <p class="gift-subtitle">Sentuh kotak kado di bawah untuk membuka kado ulang tahunmu...</p>
+
+      <!-- Animated 3D Gift Box -->
+      <div class="gift-box-wrapper" id="giftBox" role="button" tabindex="0" aria-label="Buka Kotak Kado">
+        <div class="gift-lid">
+          <div class="gift-bow">🎀</div>
+        </div>
+        <div class="gift-body">
+          <div class="gift-ribbon-vertical"></div>
+          <div class="gift-ribbon-horizontal"></div>
+        </div>
+        <div class="gift-shadow"></div>
+      </div>
+
+      <button class="btn-primary pulse-btn" id="openGiftBtn">
+        ✨ Buka Kejutan Sekarang! ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MAIN PARTY PAGE (Setelah Kado Terbuka) -->
+  <main class="main-party hidden" id="mainParty">
+    
+    <!-- Hero Banner -->
+    <header class="party-hero">
+      <div class="confetti-badge">🎉 Happy Birthday Sister! 🎉</div>
+      
+      <!-- Avatar Foto Ulang Tahun Askia -->
+      <div class="hero-avatar-wrap">
+        <div class="avatar-sparkle">✨</div>
+        <div class="avatar-ring">
+          <img src="images/askia-cantik.jpg" alt="Foto Nazilatul Askia" class="hero-avatar-img" id="heroAvatar">
+        </div>
+        <div class="avatar-badge">👑 Birthday Princess 🌸</div>
+      </div>
+
+      <h1 class="main-title">
+        Selamat Ulang Tahun, <br>
+        <span class="highlight-name">Nazilatul Askia</span> 🌸
+      </h1>
+      <p class="hero-desc">
+        Semoga harimu dipenuhi tawa, cinta, keceriaan, dan semua impian indahmu jadi kenyataan! 🌷✨
+      </p>
+    </header>
+
+    <!-- Interactive Birthday Cake Stage -->
+    <section class="cake-stage" aria-label="Kue Ulang Tahun Interaktif">
+      <div class="cake-card">
+        <div class="cake-header">
+          <h2>🎂 Kue Ulang Tahun Impian</h2>
+          <p id="cakeInstruction">Sentuh tombol untuk meniup lilinnya dan sampaikan permohonanmu!</p>
+        </div>
+
+        <!-- 3D CSS Birthday Cake -->
+        <div class="cake-container">
+          <div class="cake">
+            <!-- Candles -->
+            <div class="candles-row">
+              <div class="candle c-left">
+                <div class="flame" id="flame1"></div>
+                <div class="smoke" id="smoke1"></div>
+              </div>
+              <div class="candle c-center">
+                <div class="flame" id="flame2"></div>
+                <div class="smoke" id="smoke2"></div>
+              </div>
+              <div class="candle c-right">
+                <div class="flame" id="flame3"></div>
+                <div class="smoke" id="smoke3"></div>
+              </div>
+            </div>
+            <!-- Cake Tiers -->
+            <div class="cake-tier tier-top">
+              <div class="frosting">
+                <div class="drip d1"></div>
+                <div class="drip d2"></div>
+                <div class="drip d3"></div>
+                <div class="drip d4"></div>
+              </div>
+              <div class="cherries">🍓 🍒 🍓</div>
+            </div>
+            <div class="cake-tier tier-bottom">
+              <div class="cream-decoration">
+                <span>🍬</span><span>✨</span><span>🍭</span><span>✨</span><span>🍬</span>
+              </div>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+        </div>
+
+        <!-- Cake Action Controls -->
+        <div class="cake-actions">
+          <button class="btn-primary blow-btn" id="blowCandleBtn">
+            🌬️ Tiup Lilin & Ucap Make a Wish!
+          </button>
+          <button class="btn-secondary relight-btn hidden" id="relightCandleBtn">
+            🔥 Nyalakan Lilin Lagi
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Floating Wish Balloons (Pecahkan Balon Doa) -->
+    <section class="balloons-section">
+      <div class="section-title-wrap">
+        <span class="sub-pill">🎈 Balon Harapan</span>
+        <h2>Pecahkan Balon Doa Untuk Askia</h2>
+        <p>Klik setiap balon warna-warni di bawah untuk memunculkan doa istimewa dari kakak!</p>
+      </div>
+
+      <div class="balloons-grid">
+        <div class="balloon-item" data-wish="🌟 Sehat Selalu & Diberkahi Umurnya!">
+          <div class="balloon b-pink">
+            <span class="balloon-string"></span>
+            <span class="balloon-text">Doa 1</span>
+          </div>
+          <div class="wish-reveal hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-wish="🎓 Makin Pintar, Rajin & Berprestasi di Sekolah!">
+          <div class="balloon b-purple">
+            <span class="balloon-string"></span>
+            <span class="balloon-text">Doa 2</span>
+          </div>
+          <div class="wish-reveal hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-wish="💖 Jadi Anak yang Sholehah & Berbakti!">
+          <div class="balloon b-yellow">
+            <span class="balloon-string"></span>
+            <span class="balloon-text">Doa 3</span>
+          </div>
+          <div class="wish-reveal hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-wish="🌈 Selalu Ceria, Bahagia, & Banyak Tersenyum!">
+          <div class="balloon b-blue">
+            <span class="balloon-string"></span>
+            <span class="balloon-text">Doa 4</span>
+          </div>
+          <div class="wish-reveal hidden"></div>
+        </div>
+
+        <div class="balloon-item" data-wish="🚀 Semua Cita-cita dan Impian Askia Terkabul!">
+          <div class="balloon b-green">
+            <span class="balloon-string"></span>
+            <span class="balloon-text">Doa 5</span>
+          </div>
+          <div class="wish-reveal hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warm Sister Greeting Letter (Amplop Surat Interaktif) -->
+    <section class="letter-section">
+      <div class="section-title-wrap">
+        <span class="sub-pill">💌 Pesan Tulus Dari Kakak</span>
+        <h2>Surat Kasih Sayang</h2>
+      </div>
+
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="letter-card" id="letterCard">
+            <div class="letter-header">
+              <span class="cute-stamp">🌸</span>
+              <h3>Untuk Adikku Tersayang, Nazilatul Askia 💕</h3>
+            </div>
+            <div class="letter-body">
+              <p>
+                Hai adikku tercinta, <strong>Askia</strong>! Selamat bertambah umur ya! 🥳
+              </p>
+              <p>
+                Rasanya cepat sekali waktu berlalu. Kakak selalu bangga punya adik perempuan yang manis, pintar, dan baik hati seperti Askia. Terima kasih sudah selalu menjadi penyejuk dan pembawa tawa di keluarga kita.
+              </p>
+              <p>
+                Di hari spesialmu ini, kakak berdoa semoga Askia selalu diberi kesehatan, kebahagiaan tanpa henti, kemudahan dalam setiap urusan belajar, serta dilindungi oleh Allah SWT di manapun Askia berada. Tetaplah jadi adik yang ceria, rendah hati, dan penuh semangat menggapai impian!
+              </p>
+              <p class="letter-footer">
+                Peluk hangat & sayang selalu,<br>
+                <strong>— Dari Kakak yang Selalu Menyayangimu 💖</strong>
+              </p>
+            </div>
+          </div>
+          <div class="envelope-front"></div>
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          <div class="envelope-seal" id="envelopeSeal">💌 Klik Buka</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Polaroid Memories Gallery with Real Photos -->
+    <section class="polaroid-section">
+      <div class="section-title-wrap">
+        <span class="sub-pill">📸 Galeri Senyuman Spesial</span>
+        <h2>Potret Kebahagiaan Kita</h2>
+        <p>Klik salah satu foto untuk melihatnya lebih besar! ✨</p>
+      </div>
+
+      <div class="polaroid-grid">
+        <!-- Foto 1: Askia Cantik -->
+        <div class="polaroid-card" data-src="images/askia-cantik.jpg" data-caption="Adik Manis & Cantik, Nazilatul Askia 💕">
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-frame">
+            <img src="images/askia-cantik.jpg" alt="Foto Cantik Askia" class="polaroid-photo">
+            <div class="photo-overlay">🔍 Perbesar</div>
+          </div>
+          <p class="polaroid-caption">Adik Manis Askia 💕</p>
+        </div>
+
+        <!-- Foto 2: Foto Keluarga Tercinta -->
+        <div class="polaroid-card highlight-family" data-src="images/keluarga.jpg" data-caption="Keluarga Tercinta yang Selalu Mendukung & Menyayangimu 👨‍👩‍👧‍👦💖">
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-frame">
+            <img src="images/keluarga.jpg" alt="Foto Keluarga di Puncak Awan" class="polaroid-photo">
+            <div class="photo-overlay">🔍 Perbesar</div>
+          </div>
+          <p class="polaroid-caption">Keluarga Tercinta 👨‍👩‍👧‍👦✨</p>
+        </div>
+
+        <!-- Foto 3: Askia Wisata Alam -->
+        <div class="polaroid-card" data-src="images/askia-wisata.jpg" data-caption="Senyuman Indah & Penuh Ceria di Setiap Langkah 🌷✨">
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-frame">
+            <img src="images/askia-wisata.jpg" alt="Foto Askia Senyum Ceria" class="polaroid-photo">
+            <div class="photo-overlay">🔍 Perbesar</div>
+          </div>
+          <p class="polaroid-caption">Senyum Ceria Askia 🌷</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox Pratinjau Foto -->
+    <div class="lightbox-modal hidden" id="photoModal">
+      <div class="lightbox-backdrop" id="modalBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="modalCloseBtn" aria-label="Tutup Foto">✕</button>
+        <div class="lightbox-img-wrap">
+          <img src="" alt="Pratinjau Foto" id="modalImg" class="lightbox-img">
+        </div>
+        <p class="lightbox-caption" id="modalCaption"></p>
+      </div>
+    </div>
+
+    <!-- Footer Celebrations -->
+    <footer class="party-footer">
+      <div class="mascot-dance">🐱🎈🐰</div>
+      <p class="footer-msg">Dibuat dengan segenap rasa sayang untuk Nazilatul Askia 💝</p>
+      <button class="btn-fireworks" id="fireworksBtn">🎊 Letuskan Kembang Api Cinta! 🎊</button>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
